@@ -20,4 +20,7 @@
     <string name="title_about">About</string>
     <string name="title_movie">Movie</string>
     <string name="title_show">TV Show</string>
+    <string name="share_button">Share</string>
+    <string name="popularity">Popularity</string>
+    <string name="overview">Overview</string>
 </resources>
