@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.nicktra.moviedex.core.di.Injection
 import com.nicktra.moviedex.core.domain.usecase.MovieUseCase
 import com.nicktra.moviedex.ui.detail.DetailViewModel
+import com.nicktra.moviedex.ui.favorite.favoritemovies.FavoriteMoviesViewModel
+import com.nicktra.moviedex.ui.favorite.favoriteshows.FavoriteShowsViewModel
 import com.nicktra.moviedex.ui.movies.MoviesViewModel
 import com.nicktra.moviedex.ui.shows.ShowsViewModel
 
@@ -35,6 +37,12 @@ class ViewModelFactory private constructor(private val movieUseCase: MovieUseCas
             }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 DetailViewModel(movieUseCase) as T
+            }
+            modelClass.isAssignableFrom(FavoriteMoviesViewModel::class.java) -> {
+                FavoriteMoviesViewModel(movieUseCase) as T
+            }
+            modelClass.isAssignableFrom(FavoriteShowsViewModel::class.java) -> {
+                FavoriteShowsViewModel(movieUseCase) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }

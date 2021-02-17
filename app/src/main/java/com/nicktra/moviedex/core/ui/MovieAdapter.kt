@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nicktra.moviedex.R
 import com.nicktra.moviedex.core.domain.model.Movie
+import com.nicktra.moviedex.databinding.ItemListMovieBinding
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
 
@@ -20,7 +22,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_tourism, parent, false))
+        ListViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_list_movie, parent, false))
 
     override fun getItemCount() = listData.size
 
@@ -30,14 +32,16 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
     }
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemListTourismBinding.bind(itemView)
+        private val binding = ItemListMovieBinding.bind(itemView)
         fun bind(data: Movie) {
             with(binding) {
+                val year = data.releaseDate.substring(0,4)
+                val titleYear = data.title
                 Glide.with(itemView.context)
-                    .load(data.image)
-                    .into(ivItemImage)
-                tvItemTitle.text = data.name
-                tvItemSubtitle.text = data.address
+                    .load("https://image.tmdb.org/t/p/w500" + data.posterPath)
+                    .into(ivItemPoster)
+                tvItemTitle.text =  itemView.context.getString(R.string.item_title, titleYear, year)
+                tvItemRating.text = data.voteAverage.toString()
             }
         }
 

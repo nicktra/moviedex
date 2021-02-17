@@ -7,10 +7,10 @@ import com.nicktra.moviedex.core.data.source.local.entity.MovieEntity
 @Dao
 interface MovieDao {
 
-    @Query("SELECT * FROM movieentities where isTvShow = 0")
+    @Query("SELECT * FROM movieentities where isTvShow = 0  ORDER BY popularity DESC")
     fun getAllMovies(): LiveData<List<MovieEntity>>
 
-    @Query("SELECT * FROM movieentities where isTvShow = 1")
+    @Query("SELECT * FROM movieentities where isTvShow = 1  ORDER BY popularity DESC")
     fun getAllShows(): LiveData<List<MovieEntity>>
 
     @Query("SELECT * FROM movieentities where isTvShow = 0 and isFavorite = 1")

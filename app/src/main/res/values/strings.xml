@@ -25,4 +25,9 @@
     <string name="share_button">Share</string>
     <string name="popularity">Popularity</string>
     <string name="overview">Overview</string>
+    <string name="img_poster">Image Poster</string>
+    <string name="no_data">Empty data</string>
+    <string name="something_wrong">Oops.. something went wrong</string>
+
+    <string name="item_title"> %1$s (%2$s)</string>
 </resources>

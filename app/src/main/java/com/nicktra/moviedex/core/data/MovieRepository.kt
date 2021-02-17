@@ -40,9 +40,9 @@ class MovieRepository private constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean =
-//                data == null || data.isEmpty()
-                true // ganti dengan true jika ingin selalu mengambil data dari internet
+            override fun shouldFetch(data: List<Movie>?): Boolean {
+                return data == null || data.isEmpty()
+            }
 
             override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMovies()
@@ -61,9 +61,9 @@ class MovieRepository private constructor(
                 }
             }
 
-            override fun shouldFetch(data: List<Movie>?): Boolean =
-//                data == null || data.isEmpty()
-                true // ganti dengan true jika ingin selalu mengambil data dari internet
+            override fun shouldFetch(data: List<Movie>?): Boolean {
+                return data == null || data.isEmpty()
+            }
 
             override fun createCall(): LiveData<ApiResponse<List<ShowResponse>>> =
                 remoteDataSource.getAllShows()
