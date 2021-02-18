@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.nicktra.moviedex.R
+import com.nicktra.moviedex.core.R
+import com.nicktra.moviedex.core.databinding.ItemListMovieBinding
 import com.nicktra.moviedex.core.domain.model.Movie
-import com.nicktra.moviedex.databinding.ItemListMovieBinding
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ListViewHolder>() {
 

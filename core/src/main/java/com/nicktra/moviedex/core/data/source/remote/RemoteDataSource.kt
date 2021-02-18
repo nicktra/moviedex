@@ -1,7 +1,7 @@
 package com.nicktra.moviedex.core.data.source.remote
 
 import android.util.Log
-import com.nicktra.moviedex.BuildConfig
+import com.nicktra.moviedex.core.BuildConfig
 import com.nicktra.moviedex.core.data.source.remote.network.ApiResponse
 import com.nicktra.moviedex.core.data.source.remote.network.ApiService
 import com.nicktra.moviedex.core.data.source.remote.response.MovieResponse
