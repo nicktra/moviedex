@@ -11,6 +11,8 @@ import com.nicktra.moviedex.core.domain.model.Movie
 import com.nicktra.moviedex.core.domain.repository.IMovieRepository
 import com.nicktra.moviedex.core.utils.AppExecutors
 import com.nicktra.moviedex.core.utils.DataMapper
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class MovieRepository private constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -32,10 +34,10 @@ class MovieRepository private constructor(
             }
     }
 
-    override fun getAllMovies(): LiveData<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<Movie>> {
-                return Transformations.map(localDataSource.getAllMovies()) {
+    override fun getAllMovies(): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
+            override fun loadFromDB(): Flow<List<Movie>> {
+                return localDataSource.getAllMovies().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -44,19 +46,19 @@ class MovieRepository private constructor(
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<MovieResponse>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<MovieResponse>>> =
                 remoteDataSource.getAllMovies()
 
-            override fun saveCallResult(data: List<MovieResponse>) {
+            override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapResponsesMovieToEntities(data)
                 localDataSource.insertMovie(movieList)
             }
-        }.asLiveData()
+        }.asFlow()
 
-    override fun getAllShows(): LiveData<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<ShowResponse>>(appExecutors) {
-            override fun loadFromDB(): LiveData<List<Movie>> {
-                return Transformations.map(localDataSource.getAllShows()) {
+    override fun getAllShows(): Flow<Resource<List<Movie>>> =
+        object : NetworkBoundResource<List<Movie>, List<ShowResponse>>() {
+            override fun loadFromDB(): Flow<List<Movie>> {
+                return localDataSource.getAllShows().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -65,23 +67,23 @@ class MovieRepository private constructor(
                 return data == null || data.isEmpty()
             }
 
-            override fun createCall(): LiveData<ApiResponse<List<ShowResponse>>> =
+            override suspend fun createCall(): Flow<ApiResponse<List<ShowResponse>>> =
                 remoteDataSource.getAllShows()
 
-            override fun saveCallResult(data: List<ShowResponse>) {
+            override suspend fun saveCallResult(data: List<ShowResponse>) {
                 val showList = DataMapper.mapResponsesShowToEntities(data)
                 localDataSource.insertMovie(showList)
             }
-        }.asLiveData()
+        }.asFlow()
 
-    override fun getFavoriteMovie(): LiveData<List<Movie>> {
-        return Transformations.map(localDataSource.getFavoriteMovie()) {
+    override fun getFavoriteMovie(): Flow<List<Movie>> {
+        return localDataSource.getFavoriteMovie().map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }
 
-    override fun getFavoriteShow(): LiveData<List<Movie>> {
-        return Transformations.map(localDataSource.getFavoriteShow()) {
+    override fun getFavoriteShow(): Flow<List<Movie>> {
+        return localDataSource.getFavoriteShow().map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }
