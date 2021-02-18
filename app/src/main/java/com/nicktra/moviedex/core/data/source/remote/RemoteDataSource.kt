@@ -11,22 +11,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class RemoteDataSource private constructor(private val apiService: ApiService) {
-    companion object {
-        const val API_KEY = BuildConfig.API_KEY_TMDB
-        @Volatile
-        private var instance: RemoteDataSource? = null
-
-        fun getInstance(service: ApiService): RemoteDataSource =
-            instance ?: synchronized(this) {
-                instance ?: RemoteDataSource(service)
-            }
-    }
+class RemoteDataSource(private val apiService: ApiService) {
+    private val apiKey = BuildConfig.API_KEY_TMDB
 
     fun getAllMovies(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieList(API_KEY)
+                val response = apiService.getMovieList(apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()){
                     emit(ApiResponse.Success(response.results))
@@ -43,7 +34,7 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
     fun getAllShows(): Flow<ApiResponse<List<ShowResponse>>> {
         return flow {
             try {
-                val response = apiService.getShowList(API_KEY)
+                val response = apiService.getShowList(apiKey)
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()){
                     emit(ApiResponse.Success(response.results))

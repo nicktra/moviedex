@@ -9,17 +9,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicktra.moviedex.R
 import com.nicktra.moviedex.core.data.Resource
 import com.nicktra.moviedex.core.ui.MovieAdapter
-import com.nicktra.moviedex.core.ui.ViewModelFactory
 import com.nicktra.moviedex.databinding.FragmentMoviesBinding
 import com.nicktra.moviedex.ui.detail.DetailActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class MoviesFragment : Fragment() {
 
-    private lateinit var moviesViewModel: MoviesViewModel
+    private val moviesViewModel: MoviesViewModel by viewModel()
 
     private var _binding: FragmentMoviesBinding? = null
     private val binding get() = _binding!!
@@ -41,9 +40,6 @@ class MoviesFragment : Fragment() {
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            moviesViewModel = ViewModelProvider(this, factory)[MoviesViewModel::class.java]
 
             moviesViewModel.movie.observe(viewLifecycleOwner, { movie ->
                 if (movie != null) {

@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.nicktra.moviedex.R
 import com.nicktra.moviedex.core.data.Resource
 import com.nicktra.moviedex.core.ui.MovieAdapter
-import com.nicktra.moviedex.core.ui.ViewModelFactory
 import com.nicktra.moviedex.databinding.FragmentShowsBinding
 import com.nicktra.moviedex.ui.detail.DetailActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ShowsFragment : Fragment() {
 
-    private lateinit var showsViewModel: ShowsViewModel
+    private val showsViewModel: ShowsViewModel by viewModel()
 
     private var _binding: FragmentShowsBinding? = null
     private val binding get() = _binding!!
@@ -40,9 +40,6 @@ class ShowsFragment : Fragment() {
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            showsViewModel = ViewModelProvider(this, factory)[ShowsViewModel::class.java]
 
             showsViewModel.show.observe(viewLifecycleOwner, { show ->
                 if (show != null) {

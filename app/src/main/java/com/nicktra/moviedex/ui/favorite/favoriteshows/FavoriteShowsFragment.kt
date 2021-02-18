@@ -9,18 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.nicktra.moviedex.R
 import com.nicktra.moviedex.core.ui.MovieAdapter
-import com.nicktra.moviedex.core.ui.ViewModelFactory
-import com.nicktra.moviedex.databinding.FavoriteMoviesFragmentBinding
 import com.nicktra.moviedex.databinding.FavoriteShowsFragmentBinding
 import com.nicktra.moviedex.ui.detail.DetailActivity
-import com.nicktra.moviedex.ui.favorite.favoritemovies.FavoriteMoviesViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteShowsFragment : Fragment() {
 
-    private lateinit var favoriteShowsViewModel: FavoriteShowsViewModel
+    private val favoriteShowsViewModel: FavoriteShowsViewModel by viewModel()
 
     private var _binding: FavoriteShowsFragmentBinding? = null
     private val binding get() = _binding!!
@@ -42,9 +38,6 @@ class FavoriteShowsFragment : Fragment() {
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            favoriteShowsViewModel = ViewModelProvider(this, factory)[FavoriteShowsViewModel::class.java]
 
             favoriteShowsViewModel.favoriteShow.observe(viewLifecycleOwner, { dataShow ->
                 showAdapter.setData(dataShow)

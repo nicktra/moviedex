@@ -1,7 +1,5 @@
 package com.nicktra.moviedex.core.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import com.nicktra.moviedex.core.data.source.local.LocalDataSource
 import com.nicktra.moviedex.core.data.source.remote.RemoteDataSource
 import com.nicktra.moviedex.core.data.source.remote.network.ApiResponse
@@ -14,25 +12,11 @@ import com.nicktra.moviedex.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class MovieRepository private constructor(
+class MovieRepository(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IMovieRepository {
-
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-
-        fun getInstance(
-            remoteData: RemoteDataSource,
-            localData: LocalDataSource,
-            appExecutors: AppExecutors
-        ): MovieRepository =
-            instance ?: synchronized(this) {
-                instance ?: MovieRepository(remoteData, localData, appExecutors)
-            }
-    }
 
     override fun getAllMovies(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {

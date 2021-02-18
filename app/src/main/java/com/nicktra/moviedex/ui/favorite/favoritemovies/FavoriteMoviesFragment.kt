@@ -9,15 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.nicktra.moviedex.core.ui.MovieAdapter
-import com.nicktra.moviedex.core.ui.ViewModelFactory
 import com.nicktra.moviedex.databinding.FavoriteMoviesFragmentBinding
 import com.nicktra.moviedex.ui.detail.DetailActivity
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class FavoriteMoviesFragment : Fragment() {
 
-    private lateinit var favoriteMoviesViewModel: FavoriteMoviesViewModel
+    private val favoriteMoviesViewModel: FavoriteMoviesViewModel by viewModel()
 
     private var _binding: FavoriteMoviesFragmentBinding? = null
     private val binding get() = _binding!!
@@ -39,9 +38,6 @@ class FavoriteMoviesFragment : Fragment() {
                 intent.putExtra(DetailActivity.EXTRA_DATA, selectedData)
                 startActivity(intent)
             }
-
-            val factory = ViewModelFactory.getInstance(requireActivity())
-            favoriteMoviesViewModel = ViewModelProvider(this, factory)[FavoriteMoviesViewModel::class.java]
 
             favoriteMoviesViewModel.favoriteMovie.observe(viewLifecycleOwner, { dataMovie ->
                 movieAdapter.setData(dataMovie)
