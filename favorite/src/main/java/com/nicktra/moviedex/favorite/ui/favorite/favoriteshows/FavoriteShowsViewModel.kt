@@ -1,4 +1,4 @@
-package com.nicktra.moviedex.ui.favorite.favoriteshows
+package com.nicktra.moviedex.favorite.ui.favorite.favoriteshows
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
