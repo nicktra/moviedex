@@ -10,9 +10,9 @@
     MovieDex is android app about Movies and TV Shows with Clean Architecture, Dependency Injection, and Modularization.
     <br />
     <a href="https://github.com/nicktra/moviedex"><strong>Explore the docs »</strong></a>
-    [![nicktra](https://circleci.com/gh/nicktra/moviedex.svg?style=shield)](https://circleci.com/gh/nicktra/moviedex)
 </p>
 
+[![nicktra](https://circleci.com/gh/nicktra/moviedex.svg?style=shield)](https://circleci.com/gh/nicktra/moviedex)
 
 # MovieDex
 
