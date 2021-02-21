@@ -1,10 +1,9 @@
 package com.nicktra.moviedex.ui.detail
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.nicktra.moviedex.R
 import com.nicktra.moviedex.core.domain.model.Movie

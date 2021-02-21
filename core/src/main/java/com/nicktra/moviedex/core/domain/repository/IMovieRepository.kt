@@ -1,6 +1,5 @@
 package com.nicktra.moviedex.core.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.nicktra.moviedex.core.data.Resource
 import com.nicktra.moviedex.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow

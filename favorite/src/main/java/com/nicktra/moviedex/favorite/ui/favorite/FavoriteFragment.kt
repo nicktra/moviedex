@@ -1,10 +1,10 @@
 package com.nicktra.moviedex.favorite.ui.favorite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.nicktra.moviedex.favorite.R
 import com.nicktra.moviedex.favorite.di.favoriteModule
 import kotlinx.android.synthetic.main.fragment_favorite.*

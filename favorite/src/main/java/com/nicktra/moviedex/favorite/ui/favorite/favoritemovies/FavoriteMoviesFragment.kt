@@ -19,12 +19,12 @@ class FavoriteMoviesFragment : Fragment() {
     private val favoriteMoviesViewModel: FavoriteMoviesViewModel by viewModel()
 
     private var _binding: FavoriteMoviesFragmentBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         _binding = FavoriteMoviesFragmentBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,16 +41,16 @@ class FavoriteMoviesFragment : Fragment() {
 
             favoriteMoviesViewModel.favoriteMovie.observe(viewLifecycleOwner, { dataMovie ->
                 movieAdapter.setData(dataMovie)
-                binding.root.view_empty.visibility = if (dataMovie.isNotEmpty()) View.GONE else View.VISIBLE
+                binding?.root?.view_empty?.visibility = if (dataMovie.isNotEmpty()) View.GONE else View.VISIBLE
             })
 
-            with(binding.rvFavoriteMovie) {
+            with(binding?.rvFavoriteMovie) {
                 val orientation = this@FavoriteMoviesFragment.resources.configuration.orientation
                 val spanCount = if (orientation == Configuration.ORIENTATION_PORTRAIT) 2 else 3
 
-                layoutManager = GridLayoutManager(context, spanCount)
-                setHasFixedSize(true)
-                adapter = movieAdapter
+                this?.layoutManager = GridLayoutManager(context, spanCount)
+                this?.setHasFixedSize(true)
+                this?.adapter = movieAdapter
             }
         }
     }

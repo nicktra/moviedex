@@ -1,8 +1,8 @@
 package com.nicktra.moviedex.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.nicktra.moviedex.R
 import com.nicktra.moviedex.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_splash_screen.*

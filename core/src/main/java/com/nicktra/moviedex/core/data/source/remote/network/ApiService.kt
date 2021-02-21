@@ -2,7 +2,6 @@ package com.nicktra.moviedex.core.data.source.remote.network
 
 import com.nicktra.moviedex.core.data.source.remote.response.ListMovieResponse
 import com.nicktra.moviedex.core.data.source.remote.response.ListShowResponse
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
