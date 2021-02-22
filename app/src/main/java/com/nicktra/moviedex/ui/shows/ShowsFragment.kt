@@ -69,6 +69,7 @@ class ShowsFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding?.rvShow?.adapter = null
         _binding = null
     }
 }
