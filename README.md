@@ -7,7 +7,7 @@
 <h3 align="center">MovieDex</h3>
 
 <p align="center">
-    MovieDex is android app about Movies and TV Shows with Clean Architecture, Dependency Injection, and Modularization.
+    MovieDex is android app about Movies and TV Shows. Built by applying Clean Architecture, Reactive Programming, Dependency Injection, Modularization, Continuous Integration, Security, and Useful Libraries.
     <br />
     <a href="https://github.com/nicktra/moviedex"><strong>Explore the docs »</strong></a>
 </p>
@@ -16,7 +16,7 @@
 
 # MovieDex
 
-MovieDex is android app about Movies and TV Shows with Clean Architecture, Dependency Injection, and Modularization.
+MovieDex is android app about Movies and TV Shows. Built by applying Clean Architecture, Reactive Programming, Dependency Injection, Modularization, Continuous Integration, Security, and Useful Libraries.
 
 ## Getting Started
 
@@ -47,7 +47,7 @@ git clone https://github.com/nicktra/moviedex.git
 
 ## Screenshots App
 <pre>
-<img src="screenshots/screenshot1.jpg" width="25%">    <img src="screenshots/screenshot2.jpg" width="25%">    <img src="screenshots/screenshot3.jpg" width="25%">    <img src="screenshots/screenshot4.jpg" width="25%">    <img src="screenshots/screenshot5.jpg" width="25%">    <img src="screenshots/screenshot6.jpg" width="25%">    <img src="screenshots/screenshot7.jpg" width="25%">    <img src="screenshots/screenshot8.jpg" width="25%">    <img src="screenshots/screenshot9.jpg" width="25%">
+<img src="screenshots/screenshot1.jpg" width="25%">    <img src="screenshots/screenshot2.jpg" width="25%">    <img src="screenshots/screenshot3.jpg" width="25%">    <img src="screenshots/screenshot4.jpg" width="25%">    <img src="screenshots/screenshot5.jpg" width="25%">    <img src="screenshots/screenshot6.jpg" width="25%">    <img src="screenshots/screenshot7.jpg" width="25%">    <img src="screenshots/screenshot8.jpg" width="25%">>
 </pre>
 
 ## Built With
@@ -60,11 +60,13 @@ git clone https://github.com/nicktra/moviedex.git
 * [Room](https://developer.android.com/topic/libraries/architecture/room) persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) class is designed to store and manage UI-related data in a lifecycle conscious way. 
 * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
-* [Paging](https://developer.android.com/topic/libraries/architecture/paging) The Paging Library helps you load and display small chunks of data at a time. Loading partial data on demand reduces usage of network bandwidth and system resources.
+* [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines) a concurrency design pattern that you can use on Android to simplify code that executes asynchronously.
+* [Koin](https://insert-koin.io/) A pragmatic lightweight dependency injection framework for Kotlin developers.
+* [SQLCipher](https://github.com/sqlcipher/android-database-sqlcipher) Android SQLite API based on SQLCipher
+* [Leak Canary](https://github.com/square/leakcanary) A memory leak detection library for Android.
+* [Shimmer](https://github.com/facebook/shimmer-android) an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
 * [Glide](https://github.com/bumptech/glide) is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView) A circular ImageView for Android
-* [Mockito](https://github.com/mockito/mockito) Most popular Mocking framework for unit tests written in Java.
-* [Espresso](https://developer.android.com/training/testing/espresso/index.html) write concise, beautiful, and reliable Android UI tests.
 
 
 ## Contributing
