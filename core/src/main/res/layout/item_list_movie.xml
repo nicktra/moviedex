@@ -17,6 +17,7 @@
             android:id="@+id/iv_item_poster"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
             android:contentDescription="@string/img_poster"
             app:layout_constraintDimensionRatio="2:3"
             app:layout_constraintEnd_toEndOf="parent"
