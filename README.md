@@ -50,6 +50,22 @@ git clone https://github.com/nicktra/moviedex.git
 <img src="screenshots/screenshot1.jpg" width="25%">    <img src="screenshots/screenshot2.jpg" width="25%">    <img src="screenshots/screenshot3.jpg" width="25%">    <img src="screenshots/screenshot4.jpg" width="25%">    <img src="screenshots/screenshot5.jpg" width="25%">    <img src="screenshots/screenshot6.jpg" width="25%">    <img src="screenshots/screenshot7.jpg" width="25%">    <img src="screenshots/screenshot8.jpg" width="25%">>
 </pre>
 
+## Tech Stack
+* MVVM + Clean Architecture
+* Modularization
+  * Module [core](https://github.com/nicktra/moviedex/tree/master/core) as library module
+  * Module [favorite](https://github.com/nicktra/moviedex/tree/master/favorite) as dynamic-feature module
+* Koin for dependency injection
+* Kotlin Coroutines for handling data flow
+* Shimmer for loading animation
+* Leak Canary for memory leak detection
+* Continuous Integration with Circle-CI
+
+## Security
+* Encryption with SQLCipher
+* Obfuscation with Proguard
+* Certificate Pinning with OkHttp
+
 ## Built With
 
 * [Kotlin](https://kotlinlang.org/) - The Programming Language
